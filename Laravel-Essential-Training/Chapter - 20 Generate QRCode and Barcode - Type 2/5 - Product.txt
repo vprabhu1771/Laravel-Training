@@ -1,0 +1,44 @@
+<?php
+
+// Product.php
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use App\Helpers\BarcodeGenerator;
+
+class Product extends Model
+{
+    use HasFactory;
+
+    protected $fillable = [
+        'name',
+        'price',
+        'barcode_path'
+    ];
+
+    public function generateAndSaveBarcode()
+    {
+        // Generate a 1D barcode (CODE128 format) using the product name as data
+        $barcodeData = $this->name;
+        $barcodeImage = BarcodeGenerator::generate1DBarcode($barcodeData);
+
+        $directory = public_path('barcodes');
+
+        if (!file_exists($directory)) {
+            mkdir($directory, 0777, true);
+        }
+
+        // Save or display the barcode image as needed
+        // For example, save to public directory
+        $barcodeImagePath = 'barcodes/barcode_' . $this->id . '.png';
+        
+        file_put_contents(public_path($barcodeImagePath), $barcodeImage);
+
+        // Save the barcode image path in the database
+        $this->barcode_path = $barcodeImagePath;
+        $this->save();
+
+        return $this->barcode_path;
+    }
+}

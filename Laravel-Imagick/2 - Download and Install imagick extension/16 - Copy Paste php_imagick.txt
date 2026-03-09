@@ -1,0 +1,3 @@
+Copy Paste php_imagick.dll
+
+C:\xampp\php\ext\

@@ -1,0 +1,56 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+class InvoiceController extends Controller
+{
+    public function generateInvoice()
+    {
+        // Your logic to fetch data or calculate values goes here
+
+        $invoiceData = [
+            [
+                'description' => 'Hp Speaker',
+                'qty' => 2, 
+                'price' => 250, 
+                'discount' => 5
+            ],
+            [
+                'description' => 'View Sonic Monitor', 
+                'qty' => 1, 
+                'price' => 12500, 
+                'discount' => 12
+            ],
+            // Add more items if needed
+        ];
+
+        $subTotal = $this->calculateSubTotal($invoiceData);
+        $taxAmount = $this->calculateTaxAmount($subTotal);
+        $total = $subTotal + $taxAmount;
+
+        // Pass data to the view
+        return view('invoices.invoice', compact('invoiceData', 'subTotal', 'taxAmount', 'total'));
+    }
+
+    private function calculateSubTotal($invoiceData)
+    {
+        $subTotal = 0;
+
+        foreach ($invoiceData as $item) {
+            $amount = ($item['price'] * $item['qty']) * (1 - $item['discount'] / 100);
+            $subTotal += $amount;
+        }
+
+        return $subTotal;
+    }
+
+    private function calculateTaxAmount($subTotal)
+    {
+        $sgst = $subTotal * 0.06; // 6% SGST
+        $cgst = $subTotal * 0.06; // 6% CGST
+
+        return $sgst + $cgst;
+    }
+}

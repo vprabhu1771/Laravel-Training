@@ -1,0 +1,12 @@
+https://gist.github.com/tprinty/ba5e67b084ba2189a2dab4ae19be89dc
+
+Here is a quick way to add authentication logging to Laravel.
+
+1. Modify app/Providers/EventServiceProvider.php and add lines 16 through 32 of the example file in this GIST.
+2. Create a new file app/Listeners/LogActivity.php and copy the contents of the file below into that file.
+3. Enjoy logging.
+
+storage\logs\laravel.log
+
+[2024-02-11 16:27:43] local.INFO: [Illuminate\Auth\Events\Login] User admin@gmail.com logged in from 127.0.0.1 {"id":1,"email":"admin@gmail.com"} 
+[2024-02-11 16:29:43] local.INFO: [Illuminate\Auth\Events\Logout] User admin@gmail.com logged out from 127.0.0.1 {"id":1,"email":"admin@gmail.com"} 

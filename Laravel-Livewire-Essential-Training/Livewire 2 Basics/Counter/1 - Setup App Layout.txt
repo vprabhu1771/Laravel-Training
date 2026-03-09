@@ -1,0 +1,13 @@
+php artisan make:component AppLayout
+
+ INFO  Component 
+[C:\Users\windows_rig2\Desktop\example-app\app/View/Components/AppLayout.php] 
+created successfully.
+
+Rename 
+
+resources\views\components\app-layout.blade.php
+
+To
+
+resources\views\layout\app.blade.php

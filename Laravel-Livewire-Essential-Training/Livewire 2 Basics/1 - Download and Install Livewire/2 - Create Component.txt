@@ -1,0 +1,4 @@
+php artisan make:livewire hello-world
+
+CLASS: app/Http/Livewire//HelloWorld.php
+VIEW:  C:\Users\windows_rig2\Desktop\<project_name>\resources\views/livewire/hello-world.blade.php

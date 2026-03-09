@@ -1,0 +1,4 @@
+https://docs.gravatar.com/gravatar-images/php/
+
+Image Requests
+https://docs.gravatar.com/general/images/

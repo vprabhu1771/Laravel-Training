@@ -1,0 +1,4 @@
+use App\Http\Controllers\BarcodeController;
+
+Route::get('/generate-barcode', [BarcodeController::class, 'generateBarcode']);
+Route::get('/generate-qrcode', [BarcodeController::class, 'generateQRCode']);

@@ -1,0 +1,19 @@
+Define a route in your web.php file:
+
+use App\Http\Controllers\CityController;
+
+// Route to fetch all cities for the dropdown
+Route::get('/cities', [CityController::class, 'index'])->name('cities.index');
+
+// Route to display the city information page
+Route::get('/city-info', [CityController::class, 'cityInfoPage']);
+
+// Route to find state and country by city name
+Route::get('/find-state-country/{city}', [CityController::class, 'getCityInfo']);
+
+
+Replace 'CityController' with the actual name of your controller.
+
+Now, when you access a URL like /find-state-country/{city}, it will invoke the showCityDetails method in the CityController. 
+
+If the city is found, it will display the city-details view; otherwise, it will display the city-not-found view.

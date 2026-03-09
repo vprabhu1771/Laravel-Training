@@ -1,0 +1,55 @@
+<!-- resources/views/invoices/invoice.blade.php -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Invoice</title>
+</head>
+
+<style>
+
+table, th, td{
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+th, td{
+    padding: 15px;
+}
+
+</style>
+
+<body>
+
+    <table>
+        <thead>
+            <tr>
+                <th>S.No</th>
+                <th>Description</th>
+                <th>Qty</th>
+                <th>Price</th>
+                <th>Discount</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach($invoiceData as $key => $item)
+                <tr>
+                    <td>{{ $key + 1 }}</td>
+                    <td>{{ $item['description'] }}</td>
+                    <td>{{ $item['qty'] }}</td>
+                    <td>{{ $item['price'] }}</td>
+                    <td>{{ $item['discount'] }}%</td>
+                    <td>{{ $item['qty'] * $item['price'] * (1 - $item['discount'] / 100) }}</td>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
+
+    <p>Sub-total: {{ $subTotal }}</p>
+    <p>SGST 6%: {{ $taxAmount * 0.5 }}</p>
+    <p>CGST 6%: {{ $taxAmount * 0.5 }}</p>
+    <p>Total: {{ $total }}</p>
+
+</body>
+</html>

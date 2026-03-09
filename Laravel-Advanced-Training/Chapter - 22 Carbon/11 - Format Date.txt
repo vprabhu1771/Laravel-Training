@@ -1,0 +1,5 @@
+You can format the date as DD-MM-YYYY using the `format()` method in Carbon. Here's how you can do it:
+
+$date = Carbon::today()->format('d-m-Y');
+
+This will give you the current date in the format DD-MM-YYYY.

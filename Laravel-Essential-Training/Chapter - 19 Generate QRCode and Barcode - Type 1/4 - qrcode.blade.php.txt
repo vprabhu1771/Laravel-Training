@@ -1,0 +1,18 @@
+<!-- resources\views\qrcode.blade.php -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Example</title>
+</head>
+<body>
+    <h1>Generated QR Code</h1>
+    
+    {{-- Display the QR code image --}}
+    <img src="{{ asset('qrcodes/qrcode.png') }}" alt="QR Code Image">
+
+    {{-- You can add more content or styling as needed --}}
+</body>
+</html>

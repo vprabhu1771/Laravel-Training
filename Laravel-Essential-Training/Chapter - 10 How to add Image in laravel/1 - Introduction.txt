@@ -1,0 +1,18 @@
+Adding Images:
+
+Place images in the public directory:
+    Store your images in the public/img directory or another appropriate directory within the public folder.
+
+Reference images in your views:
+    In your Blade views, use the asset helper function to generate the correct URL for your images. For example:
+
+<img src="{{ asset('img/logo.png') }}" alt="Logo">
+
+
+Note:
+
+    The public directory is the public root of your Laravel application, and its contents are directly accessible to the public.
+
+    The asset helper function is used to generate URLs for the assets, taking into account the base URL and versioning if configured.
+
+    Ensure proper file permissions for the directories and files in the public directory to make them accessible.

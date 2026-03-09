@@ -1,0 +1,50 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Milon\Barcode\DNS1D;
+use Milon\Barcode\DNS2D;
+
+class BarcodeController extends Controller
+{
+    public function generateBarcode()
+    {
+        // Generate a 1D barcode (CODE128 format)
+        $barcode = new DNS1D();
+        $barcodeData = '123456789';
+        $barcodeImage = base64_decode($barcode->getBarcodePNG($barcodeData, 'C128'));
+
+        
+        $directory = public_path('barcodes');
+
+        if (!file_exists($directory)) {
+            mkdir($directory, 0777, true);
+        }        
+
+        // Save or display the barcode image as needed
+        // For example, save to public directory
+        file_put_contents(public_path('barcodes/barcode.png'), $barcodeImage);
+
+        return view('barcode', compact('barcodeImage'));
+    }
+
+    public function generateQRCode()
+    {
+        // Generate a QR code
+        $qrCode = new DNS2D();
+        $qrCodeData = 'https://example.com';
+        $qrCodeImage = base64_decode($qrCode->getBarcodePNG($qrCodeData, 'QRCODE'));
+
+        $directory = public_path('qrcodes');
+
+        if (!file_exists($directory)) {
+            mkdir($directory, 0777, true);
+        }
+
+        // Save or display the QR code image as needed
+        // For example, save to public directory
+        file_put_contents(public_path('qrcodes/qrcode.png'), $qrCodeImage);
+
+        return view('qrcode', compact('qrCodeImage'));
+    }
+}

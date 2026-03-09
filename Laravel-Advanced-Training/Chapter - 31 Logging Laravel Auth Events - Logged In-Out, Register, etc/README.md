@@ -1,0 +1,1 @@
+# Logging Laravel Auth Events - Logged In-Out, Register, etc

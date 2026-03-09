@@ -1,0 +1,25 @@
+use Illuminate\Validation\ValidationException;
+use Illuminate\Support\Facades\Hash;
+use App\Models\User; // Assuming your User model namespace is correct
+
+public function register(Request $request)
+{
+    try {
+        $request->validate([
+            // Your validation rules here
+        ]);
+
+        $user = User::where('email', $request->email)->first();
+
+        if (!$user || !Hash::check($request->password, $user->password)) {
+            throw ValidationException::withMessages([
+                'email' => ['The provided credentials are incorrect.'],
+            ]);
+        }
+
+        return $user->createToken($request->device_name)->plainTextToken;
+    } catch (ValidationException $e) {
+        // Validation failed, return back with errors
+        return redirect()->back()->withErrors($e->validator->errors())->withInput();
+    }
+}

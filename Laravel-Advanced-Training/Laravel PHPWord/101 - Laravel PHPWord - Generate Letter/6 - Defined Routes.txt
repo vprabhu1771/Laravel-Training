@@ -1,0 +1,5 @@
+web.php
+
+use App\Http\Controllers\LetterController;
+
+Route::get('/generate-letter/{studentId}', [LetterController::class, 'generateLetter']);

@@ -1,0 +1,46 @@
+composer create-project laravel/laravel laravel_php_word_demo
+
+cd laravel_php_word_demo
+
+php artisan make:model Student -m
+
+
+php artisan make:controller WordController
+
+
+
+Filament
+
+composer require filament/filament:"^3.1" -W
+ 
+php artisan filament:install --panels
+
+php artisan make:filament-user
+
+php artisan make:filament-resource Student --generate
+
+
+PHPOffice -> PHPWord
+
+https://github.com/PHPOffice/PHPWord
+
+composer require phpoffice/phpword
+
+
+
+https://www.youtube.com/playlist?list=PLPj1xUX0jV-XK7z964R6kiiOmFp53lfnD
+
+https://www.youtube.com/watch?v=H2nI5Uqh-XA
+
+
+
+
+https://www.youtube.com/results?search_query=phpoffice%2Fphpword
+
+https://github.com/PHPOffice/PHPWord#getting-started
+
+https://github.com/PHPOffice/PHPWord
+
+https://phpword.readthedocs.io/en/latest/templates-processing.html
+
+https://stackoverflow.com/questions/41358314/php-laravel-convert-docx-to-pdf-format

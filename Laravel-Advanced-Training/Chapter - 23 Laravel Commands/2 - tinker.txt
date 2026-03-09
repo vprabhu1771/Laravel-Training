@@ -1,0 +1,4 @@
+php artisan tinker
+
+Psy Shell v0.11.22 (PHP 8.2.12 — cli) by Justin Hileman
+> \App\Models\Customer::factory(10)->create()  

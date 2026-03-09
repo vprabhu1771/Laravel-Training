@@ -1,0 +1,31 @@
+use Illuminate\Validation\ValidationException;
+use Illuminate\Support\Facades\Hash;
+use App\Models\User; // Assuming your User model namespace is correct
+
+use Illuminate\Support\Facades\Session;
+
+public function register(Request $request)
+{
+    try {
+        $request->validate([
+            // Your validation rules here
+        ]);
+
+        $user = User::where('email', $request->email)->first();
+
+        if (!$user || !Hash::check($request->password, $user->password)) {
+            throw ValidationException::withMessages([
+                'email' => ['The provided credentials are incorrect.'],
+            ]);
+        }
+
+        // Register successful, set success message
+        Session::flash('success_message', 'User registered successfully');
+
+        // Redirect to a success page or return view
+        return redirect()->route('success_page');
+    } catch (ValidationException $e) {
+        // Validation failed, return validation errors
+        return redirect()->back()->withErrors($e->validator->errors())->withInput();
+    }
+}

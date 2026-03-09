@@ -1,0 +1,16 @@
+You can try with the 
+
+php artisan storage:link
+
+
+else you can use this
+
+A simple fix for the issue (linked broken error) in .env file 
+
+APP_URL=http://localhost
+
+this replace with the 
+
+APP_URL=http://localhost:8000
+
+then the issue will be fixed. 

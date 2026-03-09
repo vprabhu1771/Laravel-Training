@@ -1,0 +1,5 @@
+If you make a mistake or need to undo a migration, you can use the following command:
+
+php artisan migrate:rollback
+
+This will execute the down method in your migration and delete the table.

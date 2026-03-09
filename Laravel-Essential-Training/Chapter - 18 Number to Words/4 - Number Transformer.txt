@@ -1,0 +1,21 @@
+Create a transformer for specific language using the getNumberTransformer('lang') method:
+
+use NumberToWords\NumberToWords;
+
+// create the number to words "manager" class
+$numberToWords = new NumberToWords();
+
+// build a new number transformer using the RFC 3066 language identifier
+$numberTransformer = $numberToWords->getNumberTransformer('en');
+
+
+Transformer can be used by passing in numeric values to the toWords() method:
+
+// outputs "five thousand one hundred twenty"
+$numberTransformer->toWords(5120);
+
+
+It can be also used with a static method:
+
+// outputs "five thousand one hundred twenty"
+NumberToWords::transformNumber('en', 5120);

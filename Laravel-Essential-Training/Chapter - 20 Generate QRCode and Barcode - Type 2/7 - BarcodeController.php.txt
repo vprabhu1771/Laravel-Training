@@ -1,0 +1,31 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Milon\Barcode\DNS1D;
+use Milon\Barcode\DNS2D;
+
+// Import Model
+use App\Models\Product;
+use App\Models\BankDetail;
+
+class BarcodeController extends Controller
+{
+    public function generateAndSaveProductBarcode($productId)
+    {
+        $product = Product::findOrFail($productId);
+        $barcodePath = $product->generateAndSaveBarcode();
+
+        return view('barcode', compact('barcodePath'));
+    }
+
+    public function generateAndSaveProductQRcode($bankId)
+    {
+        $bank = BankDetail::findOrFail($bankId);
+        $qrcodePath = $bank->generateAndSaveQRcode();
+
+        // var_dump($qrcodePath);
+
+        return view('qrcode', compact('qrcodePath'));
+    }
+}

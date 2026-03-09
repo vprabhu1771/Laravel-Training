@@ -1,0 +1,11 @@
+composer create-project laravel/laravel laravel-generate-qr-code-and-barcode
+
+cd laravel-generate-qr-code-and-barcode
+
+php artisan serve
+
+
+
+composer require milon/barcode
+
+php artisan make:controller BarcodeController 

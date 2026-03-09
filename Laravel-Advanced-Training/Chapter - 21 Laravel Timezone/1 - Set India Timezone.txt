@@ -1,0 +1,25 @@
+To set the timezone to India in your Laravel application, you need to update the `APP_TIMEZONE` setting in your `.env` file to `Asia/Kolkata`. Here are the steps:
+
+1. Open the `.env` file in the root of your Laravel project.
+
+2. Locate the line that starts with `APP_TIMEZONE`:
+
+
+   APP_TIMEZONE=UTC
+
+
+3. Change `UTC` to `Asia/Kolkata`:
+
+
+   APP_TIMEZONE=Asia/Kolkata
+
+
+4. Save the `.env` file.
+
+5. Optionally, you can also update the `timezone` setting in the `config/app.php` file to ensure it uses the environment variable:
+
+
+   'timezone' => env('APP_TIMEZONE', 'Asia/Kolkata'),
+
+
+By setting `APP_TIMEZONE` to `Asia/Kolkata`, your Laravel application will use the India timezone.

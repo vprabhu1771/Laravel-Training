@@ -1,0 +1,8 @@
+1) Creating a Laravel Project
+
+composer create-project laravel/laravel laravel-example-app
+
+
+2) Install Livewire
+
+composer require livewire/livewire 

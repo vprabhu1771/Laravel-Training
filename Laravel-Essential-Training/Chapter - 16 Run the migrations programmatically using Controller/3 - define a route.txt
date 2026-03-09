@@ -1,0 +1,12 @@
+Next, define a route in your routes/web.php file:
+
+use App\Http\Controllers\MigrationController;
+
+Route::get('/run-migrations', [MigrationController::class, 'runMigrations']);
+
+
+Now, you can access the route /run-migrations in your browser or through an API client like Postman to trigger the migrations.
+
+Remember to replace 'migrate' with the specific migration command you want to run if you have multiple migration files or commands. 
+
+Also, make sure your web server has the necessary permissions to execute Artisan commands.

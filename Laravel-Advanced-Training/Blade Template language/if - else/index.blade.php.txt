@@ -1,0 +1,5 @@
+@if($age >= 18)
+    <p>Congrats. You are eligible for voting</p>
+@else
+    <p>Sorry, you are not eligible for voting</p>
+@endif

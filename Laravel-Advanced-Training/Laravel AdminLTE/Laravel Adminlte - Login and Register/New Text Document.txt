@@ -1,0 +1,26 @@
+php artisan adminlte:install --only=main_views
+
+php artisan make:controller ProductController -r
+
+
+composer require spatie/laravel-permission
+
+
+resources\views\users
+
+resources\views\users\roles
+
+resources\views\users\permissions
+
+
+https://yajrabox.com/docs/laravel-datatables/10.0
+
+https://github.com/realrashid/sweet-alert
+
+
+
+https://github.com/jeroennoten/Laravel-AdminLTE
+
+https://github.com/jeroennoten/Laravel-AdminLTE/wiki/Widget-Components
+
+https://php-download.com/package/maxyc/laravel-adminlte-components/file/README.md

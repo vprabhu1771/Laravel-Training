@@ -1,0 +1,13 @@
+You can get the previous year using Carbon by subtracting a year from the current date. Here's how you can do it:
+
+
+use Carbon\Carbon;
+
+$currentYear = Carbon::now()->year;
+$previousYear = Carbon::now()->subYear()->year;
+
+echo "Current year: " . $currentYear . "\n";
+echo "Previous year: " . $previousYear;
+
+
+This code will output both the current year and the previous year.

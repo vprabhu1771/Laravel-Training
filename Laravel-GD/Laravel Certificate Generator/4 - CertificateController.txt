@@ -1,0 +1,127 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+use App\Models\Student;
+
+use TCPDF;
+
+class CertificateController extends Controller
+{
+    public function index()
+    {
+        header('Content-type: image/jpeg');
+
+        // Make sure to provide the correct path to the font file
+        $font = public_path('fonts/arial.ttf');
+
+        // Make sure to provide the correct path to the image file
+        $image = imagecreatefromjpeg(public_path('certificate.jpg'));
+
+        $color = imagecolorallocate($image, 19, 21, 22);
+
+        $name = "John Doe";
+        $description = "HTML5 Outstanding Performance";
+        $achievement_date = "07-01-2024";
+        $ceo = "Prabhu";
+        $staff = "Kumar";
+
+        // Make sure to adjust the coordinates and font size based on your image dimensions
+
+        // Add text to the image using TrueType fonts
+        // $image: Image resource created with imagecreatefromjpeg or similar functions
+        // $font: Path to the TrueType font file, e.g., 'public/fonts/arial.ttf'
+        // $size: Font size in points (e.g., 40)
+        // $angle: Angle in degrees to rotate the text (e.g., 0 for horizontal)
+        // $x: X-coordinate of the starting point for the text baseline
+        // $y: Y-coordinate of the starting point for the text baseline
+        // $color: Color identifier created with imagecolorallocate or similar functions
+        // $text: The text string to be written on the image
+        imagettftext($image, 40, 0, 1100, 950, $color, $font, $name);
+
+
+
+        imagettftext($image, 40, 0, 1500, 1140, $color, $font, $description);
+
+
+        imagettftext($image, 40, 0, 600, 1220, $color, $font, $achievement_date);
+
+
+        imagettftext($image, 40, 0, 600, 1500, $color, $font, $ceo);
+
+
+        imagettftext($image, 40, 0, 1800, 1500, $color, $font, $staff);
+
+        // Output the image directly
+        imagejpeg($image);
+
+        // Destroy the image resource to free up memory
+        imagedestroy($image);
+    }
+
+
+    public function generateCertificate($studentId)
+    {
+
+        // header('Content-type: image/jpeg');
+
+        // Retrieve the student data from the database
+        $student = Student::findOrFail($studentId);
+
+        // Create a new image resource
+        $image = imagecreatefromjpeg(public_path('certificate.jpg'));
+
+        // Specify the font file path
+        $font = public_path('fonts/arial.ttf');
+
+        // Set the text color
+        $color = imagecolorallocate($image, 19, 21, 22);
+
+        // Set the name from the student data
+        $name = $student->name;
+        $description = $student->description;
+        $achievement_date = $student->achievement_date;
+        $ceo =  $student->ceo;
+        $staff = $student->staff;
+
+        imagettftext($image, 40, 0, 1100, 950, $color, $font, $name);
+
+
+
+        imagettftext($image, 40, 0, 1500, 1140, $color, $font, $description);
+
+
+        imagettftext($image, 40, 0, 600, 1220, $color, $font, $achievement_date);
+
+
+        imagettftext($image, 40, 0, 600, 1500, $color, $font, $ceo);
+
+
+        imagettftext($image, 40, 0, 1800, 1500, $color, $font, $staff);
+
+        // Specify the directory to save the output image
+        $outputDirectory = public_path('certificates');
+
+        // Make sure the directory exists, create it if not
+        if (!file_exists($outputDirectory)) {
+            mkdir($outputDirectory, 0755, true);
+        }
+
+        // Specify the path to save the output image
+        $outputPath = $outputDirectory . DIRECTORY_SEPARATOR . $studentId . '_certificate.jpg';
+
+        // Save the image to the specified path
+        imagejpeg($image, $outputPath);
+
+        // Destroy the image resource to free up memory
+        imagedestroy($image);
+
+        // Return the path to the saved image
+        return $outputPath;
+    }
+
+
+
+}

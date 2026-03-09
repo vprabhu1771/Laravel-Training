@@ -1,0 +1,81 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+use PhpOffice\PhpWord\TemplateProcessor;
+use PhpOffice\PhpWord\IOFactory;
+
+use PDF;
+
+// Import Model
+use App\Models\TowerCrane;
+
+class CertificateTemplateController extends Controller
+{
+    public function generateCertificate($id)
+    {
+        $model = TowerCrane::find($id);
+
+        // dump($model->certificate_number);
+
+        // $templatePath = public_path('templates/certificate.docx');
+
+        // Set the paths
+        $templatePath = public_path('templates/JHI-CR-01-TOWER_CRANE.docx');
+        $outputPath = storage_path('app/certificates/certificate_' . $id . '.docx');
+        
+        
+        
+
+        // Check if the certificate file already exists
+        if (file_exists($outputPath)) {
+            // If it exists, unlink (delete) the file
+            unlink($outputPath);
+        }
+
+        $templateProcessor = new TemplateProcessor($templatePath);
+
+        // Replace placeholders with model values
+        $templateProcessor->setValue('certificate_no', $model->certificate_no);
+        $templateProcessor->setValue('date_of_inspection', $model->date_of_inspection);
+        $templateProcessor->setValue('owner_company_name', $model->owner_company_name);
+        $templateProcessor->setValue('location', $model->location);
+
+        $templateProcessor->setValue('reference_regulations', $model->reference_regulations);
+        $templateProcessor->setValue('maker', $model->maker);
+        $templateProcessor->setValue('date_of_manufacture',  $model->date_of_manufacture);
+        $templateProcessor->setValue('boom_length',  $model->boom_length);
+
+        $templateProcessor->setValue('owner_no',  $model->owner_no);
+        $templateProcessor->setValue('model_no',  $model->model_no);
+        $templateProcessor->setValue('serial_no',  $model->serial_no);        
+        $templateProcessor->setValue('sticker_no',  $model->sticker_no);
+
+
+        $templateProcessor->setValue('wire_rope_details',  $model->wire_rope_details);
+        $templateProcessor->setValue('no_of_tie_support',  $model->no_of_tie_support);
+        $templateProcessor->setValue('mast_tower_height',  $model->mast_tower_height);
+        $templateProcessor->setValue('hook_block_capacity',  $model->hook_block_capacity);
+
+        $templateProcessor->setValue('degree_of_rotation',  $model->degree_of_rotation);
+        $templateProcessor->setValue('last_tie_support',  $model->last_tie_support);
+        $templateProcessor->setValue('rated_capacity',  $model->rated_capacity);
+        $templateProcessor->setValue('description_of_test',  $model->description_of_test);
+
+        $templateProcessor->setValue('date_of_last_examination', $model->date_of_last_examination);
+        $templateProcessor->setValue('date_of_next_examination', $model->date_of_next_examination);
+        $templateProcessor->setValue('date_of_last_proof_load_test', $model->date_of_last_proof_load_test);
+        $templateProcessor->setValue('date_of_next_proof_load_test', $model->date_of_next_proof_load_test);
+
+        // ... repeat for other fields
+
+        // Save the populated template to a new file
+        $templateProcessor->saveAs($outputPath);
+
+        // Return the path to the generated DOCX file
+        return $outputPath;
+    }
+    
+}

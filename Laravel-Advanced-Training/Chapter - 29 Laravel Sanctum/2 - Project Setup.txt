@@ -1,0 +1,39 @@
+composer create-project laravel/laravel laravel-sanctum-api-demo
+
+cd laravel-sanctum-api-demo
+
+php artisan migrate
+
+php artisan migrate:fresh
+
+php artisan migrate:refresh
+
+php artisan serve
+
+
+php artisan tinker
+
+Psy Shell v0.11.22 (PHP 8.2.12 — cli) by Justin Hileman
+> \App\Models\User::factory()->make() 
+
+> \App\Models\User::factory()->create(['password' => bcrypt('admin')]) 
+
+
+
+API Controller
+
+php artisan make:controller api/v2/UserController --api --model=User
+
+
+Filament
+
+composer require filament/filament:"^3.1" -W
+ 
+php artisan filament:install --panels
+
+php artisan make:filament-user
+
+
+php artisan make:filament-resource User --generate
+
+

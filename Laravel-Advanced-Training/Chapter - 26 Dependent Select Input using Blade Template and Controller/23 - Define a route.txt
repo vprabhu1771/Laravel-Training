@@ -1,0 +1,10 @@
+Define a route in your web.php file:
+
+use App\Http\Controllers\CityController;
+
+Route::get('/show-city-details/{city}', [CityController::class, 'showCityDetails']);
+
+
+Replace 'CityController' with the actual name of your controller.
+
+Now, when you access a URL like /show-city-details/{city}, it will invoke the showCityDetails method in the CityController. If the city is found, it will display the city-details view; otherwise, it will display the city-not-found view.

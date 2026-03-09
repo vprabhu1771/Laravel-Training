@@ -1,0 +1,31 @@
+composer create-project laravel/laravel laravel-certificate-generator
+
+cd laravel-certificate-generator
+
+php artisan serve
+
+
+php artisan make:model Student -m
+
+
+composer require barryvdh/laravel-dompdf
+composer require tecnickcom/tcpdf
+
+
+php artisan make:mail CertificateEmail
+
+
+
+Filament
+
+composer require filament/filament:"^3.1" -W
+ 
+php artisan filament:install --panels
+
+php artisan make:filament-user
+
+
+php artisan make:filament-resource Student --generate
+
+
+php artisan make:filament-widget ExpenseOverview --stats-overview

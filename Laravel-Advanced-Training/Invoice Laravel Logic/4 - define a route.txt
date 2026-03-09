@@ -1,0 +1,14 @@
+Next, define a route in your routes/web.php file:
+
+// routes/web.php
+
+use App\Http\Controllers\InvoiceController;
+
+Route::get('/generate-invoice', [InvoiceController::class, 'generateInvoice']);
+
+
+This route will map the URL /generate-invoice to the generateInvoice method in the InvoiceController. You can change the URL and method name according to your preferences and naming conventions.
+
+After defining the route, you can access the invoice generation page by visiting the specified URL in your browser. For example, if you're running your Laravel application locally, 
+
+you can access the invoice generation page at http://localhost:8000/generate-invoice.

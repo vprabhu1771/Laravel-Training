@@ -1,0 +1,35 @@
+Open the DatabaseSeeder.php file (usually located in the same directory) and add the following code:
+
+// File: database/seeders/DatabaseSeeder.php
+
+<?php
+
+namespace Database\Seeders;
+
+// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Database\Seeder;
+
+class DatabaseSeeder extends Seeder
+{
+    /**
+     * Seed the application's database.
+     */
+    public function run(): void
+    {
+        // \App\Models\User::factory(10)->create();
+
+        // \App\Models\User::factory()->create([
+        //     'name' => 'Test User',
+        //     'email' => 'test@example.com',
+        // ]);
+
+        // Call the CountrySeeder class
+        $this->call(CountrySeeder::class);
+
+        // Call the StateSeeder class
+        $this->call(StateSeeder::class);
+
+        // Call the CitySeeder class
+        $this->call(CitySeeder::class);
+    }
+}

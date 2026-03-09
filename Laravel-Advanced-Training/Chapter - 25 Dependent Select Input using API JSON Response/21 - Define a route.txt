@@ -1,0 +1,12 @@
+Define a route in your web.php or api.php file:
+
+use App\Http\Controllers\CityController;
+
+Route::get('/find-state-country/{city}', [CityController::class, 'findStateAndCountryByCity']);
+
+
+Replace 'YourController' with the actual name of your controller.
+
+Now, when you access the URL like /find-state-country/{city}, it will return the city, state, and country associated with the given city. 
+
+Make sure to replace the placeholder {city} with the actual city name you want to search for.

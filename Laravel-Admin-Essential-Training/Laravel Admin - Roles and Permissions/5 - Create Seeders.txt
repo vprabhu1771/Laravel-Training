@@ -1,0 +1,5 @@
+Generate seeders for roles, permissions, and users:
+
+php artisan make:seeder RoleSeeder
+php artisan make:seeder PermissionSeeder
+php artisan make:seeder UserSeeder

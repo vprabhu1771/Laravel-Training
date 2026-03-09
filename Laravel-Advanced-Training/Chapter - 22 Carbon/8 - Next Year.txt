@@ -1,0 +1,12 @@
+To get the next year using Carbon, you can use the `addYear()` method. Here's how you can do it:
+
+use Carbon\Carbon;
+
+$currentYear = Carbon::now()->year;
+$nextYear = Carbon::now()->addYear()->year;
+
+echo "Current year: " . $currentYear . "\n";
+echo "Next year: " . $nextYear;
+
+
+This will output the current year and the next year.

@@ -1,0 +1,71 @@
+Create two Blade views in the resources/views directory:
+
+    resources/views/city-details.blade.php
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find State and Country</title>
+    <!-- Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+<body>
+
+    <label for="citySelect">Select City:</label>
+    <select id="citySelect">
+        <!-- Options will be populated dynamically using JavaScript -->
+    </select>
+
+    <div id="result">
+        <!-- Result will be displayed dynamically using JavaScript -->
+    </div>
+
+    <script>
+        // Fetch and populate city options
+        $(document).ready(function () {
+            $.ajax({
+                url: '{{ route("cities.index") }}', // Replace with your actual route
+                method: 'GET',
+                success: function (data) {
+                    // Populate the select dropdown
+                    var citySelect = $('#citySelect');
+                    citySelect.append($('<option>', {
+                        value: '',
+                        text: 'Select a city'
+                    }));
+                    $.each(data, function (key, value) {
+                        citySelect.append($('<option>', {
+                            value: value.name,
+                            text: value.name
+                        }));
+                    });
+                }
+            });
+
+            // Handle change event on the city select dropdown
+            $('#citySelect').change(function () {
+                var selectedCity = $(this).val();
+
+                // Make an AJAX request to your Laravel controller method
+                $.ajax({
+                    url: '/find-state-country/' + selectedCity,
+                    method: 'GET',
+                    success: function (data) {
+                        // Display the result
+                        $('#result').html('<p>City: ' + data.city.name + '</p>' +
+                                          '<p>State: ' + data.state.name + '</p>' +
+                                          '<p>Country: ' + data.country.name + '</p>');
+                    },
+                    error: function (error) {
+                        // Handle errors
+                        $('#result').html('<p>Error: ' + error.responseJSON.error + '</p>');
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!-- resources\views\barcode.blade.php -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barcode Example</title>
+</head>
+<body>
+    <h1>Generated Barcode</h1>
+    
+    {{-- Display the barcode image --}}
+    <img src="{{ asset('barcodes/barcode.png') }}" alt="Barcode Image">
+
+    {{-- You can add more content or styling as needed --}}
+</body>
+</html>

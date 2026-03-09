@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Address Form</title>
+<style>
+    .hidden {
+        display: none;
+    }
+</style>
+</head>
+<body>
+
+<div class="form first">
+    <div class="details ID">
+        <div class="fields">            
+            <div class="input-field">
+                <label>Address Type - Permanent or Temporary<span style="color:#FF0000">*</span></label>
+                <select id="address_type" name="address_type" onchange="toggleAddressDiv()">
+                    <option disabled selected>Select Address Type</option>
+                    <option value="Permanent">Permanent</option>
+                    <option value="Temporary">Temporary</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br><br>
+
+<div class="form Third">                    
+    <div class="details address" id="permanent_address_div" class="hidden">
+
+        <span class="title">Permanent Address</span>
+        <div class="fields">
+            <div class="input-field">
+                <label>Door/Street</label>
+                <input type="text" placeholder="Enter nationality" name="door_street">
+            </div>
+            <!-- Add other permanent address fields here -->
+        </div>
+    </div>
+
+    <div class="details family" id="temporary_address_div" class="hidden">
+        <span class="title">Temporary Address</span>
+        <div class="fields">                    
+            <div class="input-field">
+                <label>Door/Street</label>
+                <input type="text" placeholder="Temporary Address Door/Street" name="temporary_address_door_street">
+            </div>
+            <!-- Add other temporary address fields here -->
+        </div>
+    </div>
+</div>
+
+<script>
+    function toggleAddressDiv() {
+        var addressType = document.getElementById("address_type").value;
+        var permanentDiv = document.getElementById("permanent_address_div");
+        var temporaryDiv = document.getElementById("temporary_address_div");
+
+        if (addressType === "Permanent") {
+            permanentDiv.classList.remove("hidden");
+            temporaryDiv.classList.add("hidden");
+        } else if (addressType === "Temporary") {
+            permanentDiv.classList.add("hidden");
+            temporaryDiv.classList.remove("hidden");
+        }
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,11 @@
+You can use Carbon to get the current month and its corresponding month number in Laravel. Here's how you can do it:
+
+use Carbon\Carbon;
+
+$currentMonth = Carbon::now()->monthName;
+$currentMonthNumber = Carbon::now()->month;
+
+echo "Current month: " . $currentMonth;
+echo "Current month number: " . $currentMonthNumber;
+
+This code snippet will output both the name and the number of the current month. `Carbon::now()->monthName` retrieves the name of the current month, while `Carbon::now()->month` retrieves the month number.

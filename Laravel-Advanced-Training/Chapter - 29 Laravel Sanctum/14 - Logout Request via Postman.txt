@@ -1,0 +1,16 @@
+Postman
+
+Type -> GET
+
+
+URL 
+http://127.0.0.1:8000/api/user/revoke
+
+
+Authorization -> Type Bearer Token
+
+Token V7P4c8jEptrHqW8BXYGBHf1fplA5fP6ZWTV9kKxod6efb46f
+
+OUTPUT
+
+tokens are deleted

@@ -1,0 +1,31 @@
+Postman
+
+Type -> POST
+
+
+URL 
+http://127.0.0.1:8000/api/v2/register
+
+
+Body -> raw -> JSON
+
+{
+    "name": "John Doe",
+    "email": "john.doe@example.com",
+    "password": "password123"
+}
+
+
+OUTPUT
+
+{
+    "message": "User registered successfully",
+    "user": {
+        "name": "John Doe",
+        "email": "john.doe@example.com",
+        "updated_at": "2024-02-18T06:33:01.000000Z",
+        "created_at": "2024-02-18T06:33:01.000000Z",
+        "id": 6,
+        "avatar": "https://gravatar.com/avatar/8eb1b522f60d11fa897de1dc6351b7e8"
+    }
+}

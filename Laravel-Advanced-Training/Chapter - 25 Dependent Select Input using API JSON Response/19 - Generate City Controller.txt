@@ -1,0 +1,5 @@
+Run the following command to generate a controller:
+
+php artisan make:controller CityController
+
+This will create a new controller file at app/Http/Controllers/CityController.php.

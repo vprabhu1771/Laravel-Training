@@ -1,0 +1,5 @@
+web.php
+
+use App\Http\Controllers\WordController;
+
+Route::get('/process-word-template/{studentId}', [WordController::class, 'processWordTemplate']);

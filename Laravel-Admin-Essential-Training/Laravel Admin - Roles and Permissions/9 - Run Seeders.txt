@@ -1,0 +1,5 @@
+Finally, run the seeders to populate the database:
+
+php artisan db:seed --class=RoleSeeder
+php artisan db:seed --class=PermissionSeeder
+php artisan db:seed --class=UserSeeder

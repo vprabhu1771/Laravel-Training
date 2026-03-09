@@ -1,0 +1,7 @@
+name: admin
+
+email: admin@gmail.com
+
+password: admin1234
+
+confirm password: admin1234

@@ -1,0 +1,17 @@
+# 1 - Enable GD Library
+ 
+```
+xampp -> Apache -> php.ini -> Edit -> Find -> Type gd
+```
+
+```
+;extension=gd
+```
+
+To
+
+```
+extension=gd
+```
+
+Restart Apache Server to Apply Changes

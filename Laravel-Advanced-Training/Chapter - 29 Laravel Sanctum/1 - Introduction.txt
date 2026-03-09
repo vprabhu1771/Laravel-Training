@@ -1,0 +1,6 @@
+https://laravel.com/docs/10.x/sanctum
+
+
+You may install Laravel Sanctum via the Composer package manager:
+
+composer require laravel/sanctum

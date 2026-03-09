@@ -1,0 +1,16 @@
+<?php
+
+namespace Database\Seeders;
+
+use Illuminate\Database\Seeder;
+use App\Models\Permission;
+
+class PermissionSeeder extends Seeder
+{
+    public function run()
+    {
+        Permission::create(['name' => 'Create Post', 'slug' => 'create-post']);
+        Permission::create(['name' => 'Edit Post', 'slug' => 'edit-post']);
+        Permission::create(['name' => 'Delete Post', 'slug' => 'delete-post']);
+    }
+}

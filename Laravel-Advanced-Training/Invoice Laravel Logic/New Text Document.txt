@@ -1,0 +1,11 @@
+Invoice Laravel Logic
+
+S.No	Description		Qty	Price	Discount	Total
+1	Hp Speaker		2	250	5%		calculate amount
+2	View Sonic Monitor	1	12500	12%		calculate amount
+
+Sub-total 
+SGST 6% 	TAX IN WORDS
+CGST 6%		
+
+Total		Total In WORDS

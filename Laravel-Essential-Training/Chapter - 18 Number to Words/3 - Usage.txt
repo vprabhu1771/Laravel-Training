@@ -1,0 +1,1 @@
+There are two types of number-to-words transformation: number and currency. In order to use a relevant transformer for specific language create an instance of NumberToWords class and call a method that creates a new instance of the desired transformer;

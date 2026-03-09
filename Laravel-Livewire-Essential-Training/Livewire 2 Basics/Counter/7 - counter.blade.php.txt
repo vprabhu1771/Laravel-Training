@@ -1,0 +1,21 @@
+<div class="flex h-screen justify-center py-4">
+
+<div>
+
+    <button 
+    class="py-2 px-4 bg-indigo-500 hover:bg-indigo-900 rounded text-white"
+    wire:click="increment">
+    +
+    </button>
+
+    <span>{{ $count }}</span>
+
+    <button 
+    class="py-2 px-4 bg-indigo-500 hover:bg-indigo-900 rounded text-white"
+    wire:click="decrement">
+    -
+    </button>
+
+</div>
+
+</div>

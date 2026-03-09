@@ -1,0 +1,20 @@
+Folder Setup
+
+project_folder - resources -> views -> frontend
+
+project_folder - resources -> views -> frontend -> layout
+
+File Setup
+
+project_folder - resources -> views -> frontend -> layout
+
+app.blade.php
+topbar.blade.php
+header.blade.php
+footer.blade.php
+
+project_folder - resources -> views -> frontend
+
+forget_password.blade.php
+
+

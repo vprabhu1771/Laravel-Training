@@ -1,0 +1,5 @@
+use App\Http\Controllers\CertificateController;
+
+Route::get('/generate-certificate', [CertificateController::class, 'index'])->name('generate.certificate');
+
+Route::get('/generate-certificate/{studentId}', [CertificateController::class, 'generateCertificate'])->name('generate.certificate');

@@ -1,0 +1,45 @@
+To add `{{ asset('') }}` using Visual Studio Code's find and replace feature, you can use the following steps:
+
+### 1. Open the Find and Replace Panel
+- Press `Ctrl + H` (or `Cmd + H` on macOS) to open the find and replace panel.
+
+### 2. Use a Regular Expression for Find
+- In the "Find" input box, enter the following regular expression to match the `href` and `src` attributes:
+
+  ```
+  (href|src)="(.+?)"
+  ```
+
+  - This regular expression finds `href` or `src` attributes and captures the value inside the quotes.
+
+### 3. Use a Replace Pattern
+- In the "Replace" input box, use the following replacement pattern:
+
+  ```
+  $1="{{ asset('$2') }}"
+  ```
+
+  - `$1` refers to the first captured group (either `href` or `src`).
+  - `$2` refers to the second captured group (the URL path).
+
+### 4. Enable Regular Expression Mode
+- Make sure to enable regular expression mode by clicking the `.*` button in the find and replace panel or pressing `Alt + R`.
+
+### 5. Perform the Replace
+- Click on "Replace All" to apply the changes across your file(s).
+
+### Example
+
+Original HTML:
+```html
+<link rel="stylesheet" href="frontend/css/plugins/animate.min.css" />
+<script src="frontend/js/vendor/modernizr-3.6.0.min.js"></script>
+```
+
+After applying find and replace:
+```html
+<link rel="stylesheet" href="{{ asset('frontend/css/plugins/animate.min.css') }}" />
+<script src="{{ asset('frontend/js/vendor/modernizr-3.6.0.min.js') }}"></script>
+```
+
+This method will efficiently convert all `href` and `src` attributes to use Laravel's `asset` function in your project.

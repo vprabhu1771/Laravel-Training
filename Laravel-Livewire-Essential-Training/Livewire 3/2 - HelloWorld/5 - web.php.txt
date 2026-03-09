@@ -1,0 +1,13 @@
+routes\web.php
+
+<?php
+
+use Illuminate\Support\Facades\Route;
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
+use App\Livewire\HelloWorld;
+ 
+Route::get('/hellworld', HelloWorld::class);

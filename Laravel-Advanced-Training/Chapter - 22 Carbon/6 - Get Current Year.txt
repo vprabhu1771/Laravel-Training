@@ -1,0 +1,11 @@
+In Laravel, you can use Carbon, a powerful library for handling dates and times, to easily get the current year. Here's how you can do it:
+
+
+use Carbon\Carbon;
+
+$currentYear = Carbon::now()->year;
+
+echo "Current year: " . $currentYear;
+
+
+This code snippet will output the current year. `Carbon::now()` creates a new Carbon instance representing the current date and time, and then `->year` retrieves the year component of that instance.

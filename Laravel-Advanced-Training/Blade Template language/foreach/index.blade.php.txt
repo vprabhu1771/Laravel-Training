@@ -1,0 +1,6 @@
+@foreach ($posts as $row)
+    <div>
+        <h2>{{ $row->title }}</h2>
+        <p>{{ $row->body }}</p>
+    </div>
+@endforeach

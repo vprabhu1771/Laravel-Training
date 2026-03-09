@@ -1,0 +1,44 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use App\Helpers\BarcodeGenerator;
+
+class BankDetail extends Model
+{
+    use HasFactory;
+
+    protected $fillable = [
+        'name',
+        'ifsc',
+        'micr',
+        'qrcode_path'
+    ];
+    
+    public function generateAndSaveQRcode()
+    {
+        // Generate a 1D qrcode (CODE128 format) using the product name as data
+        $qrcodeData = $this->name;        
+        $qrcodeImage = BarcodeGenerator::generateQRCode($qrcodeData);
+
+        $directory = public_path('qrcodes');
+
+        if (!file_exists($directory)) {
+            mkdir($directory, 0777, true);
+        }
+
+        // Save or display the qrcode image as needed
+        // For example, save to public directory
+        $qrcodeImagePath = 'qrcodes/qrcode_' . $this->id . '.png';
+        
+        file_put_contents(public_path($qrcodeImagePath), $qrcodeImage);
+
+        // Save the qrcode image path in the database
+        $this->qrcode_path = $qrcodeImagePath;
+        $this->save();
+
+        return $this->qrcode_path;
+    }
+}

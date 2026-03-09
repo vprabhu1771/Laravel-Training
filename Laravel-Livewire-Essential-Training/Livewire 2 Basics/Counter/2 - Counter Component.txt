@@ -1,0 +1,6 @@
+php artisan make:livewire counter
+
+ COMPONENT CREATED  🤙
+
+CLASS: app/Http/Livewire//Counter.php
+VIEW:  C:\Users\windows_rig2\Desktop\example-app\resources\views/livewire/counter.blade.php

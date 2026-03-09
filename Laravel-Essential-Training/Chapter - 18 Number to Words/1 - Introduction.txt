@@ -1,0 +1,4 @@
+https://packagist.org/packages/kwn/number-to-words
+
+
+Welcome to number-to-words, a PHP utility that seamlessly transforms numeric values into their corresponding words. Effortlessly convert numbers, such as 123, into expressive and readable formats like "one hundred and twenty-three" with just a few lines of code.

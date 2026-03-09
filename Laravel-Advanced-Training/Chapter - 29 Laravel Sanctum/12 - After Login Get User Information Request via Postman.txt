@@ -1,0 +1,23 @@
+Postman
+
+Type -> GET
+
+
+URL 
+http://127.0.0.1:8000/api/user
+
+
+Authorization -> Type Bearer Token
+
+Token V7P4c8jEptrHqW8BXYGBHf1fplA5fP6ZWTV9kKxod6efb46f
+
+OUTPUT
+
+{
+    "id": 1,
+    "name": "admin",
+    "email": "admin@gmail.com",
+    "email_verified_at": null,
+    "created_at": "2024-01-24T19:13:32.000000Z",
+    "updated_at": "2024-01-24T19:13:32.000000Z"
+}

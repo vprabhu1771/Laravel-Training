@@ -1,0 +1,18 @@
+To calculate the next day from yesterday using Carbon, you can do the following:
+
+
+use Carbon\Carbon;
+
+$yesterday = Carbon::yesterday();
+$nextDay = $yesterday->addDay();
+
+echo $nextDay->toDateString();
+
+
+This code snippet will output the date for the day after yesterday. Here's a step-by-step breakdown of the code:
+
+1. `Carbon::yesterday()` gets yesterday's date.
+
+2. `$yesterday->addDay()` adds one day to yesterday's date to get the next day.
+
+3. `->toDateString()` converts the Carbon instance to a string in `YYYY-MM-DD` format.

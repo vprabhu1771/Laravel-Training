@@ -1,0 +1,19 @@
+List all admin commands
+
+vendor\encore\laravel-admin\src\Console\AdminCommand.php
+
+php artisan admin
+
+
+
+vendor\encore\laravel-admin\src\Console\InstallCommand.php
+
+php artisan admin:install
+
+
+Create a admin user
+
+vendor\encore\laravel-admin\src\Console\CreateUserCommand.php
+
+php artisan admin:create-user
+

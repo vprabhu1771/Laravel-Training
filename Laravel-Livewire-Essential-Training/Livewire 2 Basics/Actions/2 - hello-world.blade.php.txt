@@ -1,0 +1,58 @@
+<div>
+    <input wire:model="name" type="text">
+
+    <input wire:model="loud" type="checkbox">
+
+    <select wire:model="greeting" multiple>
+
+        <option>Hello</option>
+
+        <option>Goodbye</option>
+
+        <option>Adios</option>
+
+    </select>
+
+    <!-- CTRL + CLICK Greeting drop down -->
+
+    {{ implode(',', $greeting) }} {{ $name }} @if ($loud) ! @endif
+
+    <button wire:click="resetName">Reset Name</button>
+
+    <!-- OR -->
+
+    <button wire:click="resetName('Bingo')">Reset Name</button>
+
+    <!-- OR -->
+
+    <button wire:click="resetName($event.target.innerText)">Reset Name</button>
+
+    <!-- OR -->
+
+    <button wire:mouseenter="resetName('Bingo')">Reset Name</button>
+
+    <!-- OR -->
+
+    <form action="#" wire:submit="resetName('Bingo')">
+
+        <button>Reset Name</button>
+
+    </form>
+
+    <!-- OR -->
+
+    <form action="#" wire:submit.prevent="resetName('Bingo')">
+
+        <button>Reset Name</button>
+
+    </form>
+
+    <!-- OR -->
+
+    <form action="#" wire:submit.prevent="$set('name', 'Bingo')">
+
+        <button>Reset Name</button>
+
+    </form>
+
+</div>

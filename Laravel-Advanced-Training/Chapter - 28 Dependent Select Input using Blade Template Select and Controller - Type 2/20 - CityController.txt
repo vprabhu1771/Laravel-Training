@@ -1,0 +1,43 @@
+Open the generated controller file (app/Http/Controllers/CityController.php) and define a method to fetch the data:
+
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+// Import City Model
+use App\Models\City;
+
+class CityController extends Controller
+{
+    public function index()
+    {
+        // Adjust this query as needed
+        $cities = City::all();
+        return response()->json($cities);
+    }
+
+    public function cityInfoPage()
+    {
+        return view('city-details');
+    }
+
+    public function getCityInfo($cityName)
+    {
+        $city = City::where('name', $cityName)->with('state.country')->first();
+
+        if ($city) {
+            $state = $city->state;
+            $country = $state->country;
+
+            return response()->json([
+                'city' => $city,
+                'state' => $state,
+                'country' => $country,
+            ]);
+        } else {
+            return response()->json(['error' => 'City not found'], 404);
+        }
+    }
+}

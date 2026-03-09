@@ -1,0 +1,3 @@
+Run the following command to generate a controller:
+
+php artisan make:controller CityController

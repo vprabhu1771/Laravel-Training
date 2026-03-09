@@ -1,0 +1,38 @@
+Now, open the generated controller file (MigrationFreshController.php) and add the following code:
+
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Artisan;
+
+class MigrationFreshController extends Controller
+{
+    public function migrateAndSeed()
+    {
+        try {
+            // Run the migrate:fresh command
+            Artisan::call('migrate:fresh');
+
+            // Run the db:seed command
+            Artisan::call('db:seed');
+
+            $output = Artisan::output();
+
+            // You can return the output or a success message
+            return response()->json([
+                'message' => 'Database migrated and seeded successfully', 
+                'output' => $output
+            ]);
+
+        } 
+        catch (\Exception $e) 
+        {
+            // Handle any exceptions that might occur
+            return response()->json([
+                'error' => $e->getMessage()
+            ], 500);
+        }
+    }
+}

@@ -1,0 +1,18 @@
+composer create-project --prefer-dist laravel/laravel:10.0 laravel_small_shop
+
+cd laravel_small_shop
+
+php artisan serve
+
+
+.env
+
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=laravel_small_shop
+DB_USERNAME=root
+DB_PASSWORD=
+
+
+php artisan migrate

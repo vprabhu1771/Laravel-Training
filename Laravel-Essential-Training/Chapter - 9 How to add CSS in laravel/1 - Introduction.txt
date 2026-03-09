@@ -1,0 +1,18 @@
+Adding CSS (Stylesheets):
+
+Create a CSS file:
+    Place your CSS files in the public/css directory. For example, you can create a file named styles.css in the public/css directory.
+
+Link the CSS file in your Blade views:
+    Open the Blade view file where you want to include the CSS file (e.g., resources/views/welcome.blade.php) and add the following line in the <head> section:
+
+<link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+
+
+Note:
+
+    The public directory is the public root of your Laravel application, and its contents are directly accessible to the public.
+
+    The asset helper function is used to generate URLs for the assets, taking into account the base URL and versioning if configured.
+
+    Ensure proper file permissions for the directories and files in the public directory to make them accessible.

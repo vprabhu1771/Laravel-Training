@@ -1,0 +1,47 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use PhpOffice\PhpWord\PhpWord;
+use PhpOffice\PhpWord\IOFactory;
+
+use App\Models\Student;
+
+class LetterController extends Controller
+{
+    public function generateLetter($studentId)
+    {
+        // Fetch student information from the database
+        $student = Student::find($studentId);
+
+        // Create a new PHPWord instance
+        $phpWord = new PhpWord();
+
+        // Create a new section
+        $section = $phpWord->addSection();
+
+        // Add content to the section (customize this based on your needs)
+        $section->addText('Date: ' . date('Y-m-d'));
+        $section->addText(' ');
+        $section->addText('Dear ' . $student->name . ',');
+        $section->addText(' ');
+        $section->addText('This is to inform you that you have successfully completed your studies.');
+        $section->addText(' ');
+        $section->addText('Sincerely,');
+        $section->addText('Your School Name');
+
+        // Save the document
+        $filename = 'letter_' . $student->id . '.docx';
+        $path = storage_path('app/public/letters/' . $filename);
+        $phpWord->save($path);
+
+        // Return the path to the generated letter
+
+        // Initiate the download without deleting the file after sending the response
+        return response()->download($path)->deleteFileAfterSend(false);
+
+        // Initiate the download and delete the file after sending the response
+        return response()->download($path)->deleteFileAfterSend(true);
+    }
+}

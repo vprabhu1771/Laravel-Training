@@ -1,0 +1,23 @@
+<?php
+
+namespace Database\Seeders;
+
+use Illuminate\Database\Seeder;
+use App\Models\User;
+use App\Models\Role;
+
+class UserSeeder extends Seeder
+{
+    public function run()
+    {
+        $adminRole = Role::where('slug', 'admin')->first();
+
+        $user = User::create([
+            'username' => 'admin',
+            'password' => bcrypt('password'),
+            'name' => 'Admin User',
+        ]);
+
+        $user->roles()->attach($adminRole);
+    }
+}

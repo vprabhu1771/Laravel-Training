@@ -1,0 +1,20 @@
+Create two Blade views in the resources/views directory:
+
+    resources/views/city-details.blade.php
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>City Details</title>
+</head>
+<body>
+
+    <h1>City Details</h1>
+    <p>City: {{ $city->name }}</p>
+    <p>State: {{ $state->name }}</p>
+    <p>Country: {{ $country->name }}</p>
+
+</body>
+</html>

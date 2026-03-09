@@ -1,0 +1,15 @@
+<!-- Display error for 'name' field -->
+@if ($errors->has('name'))
+    <div class="alert alert-danger">
+        {{ $errors->first('name') }}
+    </div>
+@endif
+
+<!-- Display error for 'email' field -->
+@if ($errors->has('email'))
+    <div class="alert alert-danger">
+        {{ $errors->first('email') }}
+    </div>
+@endif
+
+<!-- Add more blocks like this for other fields as needed -->

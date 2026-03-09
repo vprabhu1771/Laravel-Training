@@ -1,0 +1,6 @@
+web.php
+
+use App\Http\Controllers\CertificateTemplateController;
+
+// Route::get('/generate-certificate/{id}', [CertificateTemplateController::class, 'generateCertificate'])->name('generate.certificate.docx');
+// Route::get('/convert-to-pdf/{id}', [CertificateTemplateController::class, 'convertToPDF'])->name('generate.certificate.pdf');

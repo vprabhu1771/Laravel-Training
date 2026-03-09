@@ -1,0 +1,43 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use PhpOffice\PhpWord\TemplateProcessor;
+
+// Import Model
+use App\Models\Student;
+
+class WordController extends Controller
+{
+    public function processWordTemplate($studentId)
+    {
+        // Load the Word template
+        $templateProcessor = new TemplateProcessor(public_path('template.docx'));
+
+        // Fetch student information from the database
+        $student = Student::find($studentId);
+
+	// If the student is not found, return a not found response
+        if (!$student) {
+            return response()->json(['error' => 'Student not found'], 404);
+        }
+
+        // Replace placeholders with actual data
+        $templateProcessor->setValue('name', $student->name);
+        $templateProcessor->setValue('email', $student->email);
+
+        // Save the processed Word document
+        $outputFilePath = public_path('output.docx');
+        $templateProcessor->saveAs($outputFilePath);
+
+         // Create a JSON response
+         $response = ['message' => 'Word document processed and sent successfully'];
+
+        
+        // Download the processed Word document and delete the file after sending
+        return response()            
+            ->download($outputFilePath)
+            ->deleteFileAfterSend(true);    
+    }
+}

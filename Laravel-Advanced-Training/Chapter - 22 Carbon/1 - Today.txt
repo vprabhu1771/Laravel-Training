@@ -1,0 +1,3 @@
+use Carbon\Carbon;
+
+Carbon::today()

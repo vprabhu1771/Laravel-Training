@@ -1,0 +1,18 @@
+Adding JavaScript (Scripts):
+
+Create a JS file:
+    Place your JavaScript files in the public/js directory. For example, you can create a file named scripts.js in the public/js directory.
+
+Include the JS file in your Blade views:
+    Open the Blade view file where you want to include the JS file and add the following line just before the closing </body> tag:
+
+<script src="{{ asset('js/scripts.js') }}"></script>
+
+
+Note:
+
+    The public directory is the public root of your Laravel application, and its contents are directly accessible to the public.
+
+    The asset helper function is used to generate URLs for the assets, taking into account the base URL and versioning if configured.
+
+    Ensure proper file permissions for the directories and files in the public directory to make them accessible.

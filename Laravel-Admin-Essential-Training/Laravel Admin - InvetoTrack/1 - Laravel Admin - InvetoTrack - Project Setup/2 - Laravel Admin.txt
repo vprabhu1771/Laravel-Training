@@ -1,0 +1,14 @@
+composer require encore/laravel-admin:1.*
+
+php artisan vendor:publish --provider="Encore\Admin\AdminServiceProvider"
+
+php artisan admin:install
+
+
+
+php artisan serve
+
+
+Open http://localhost/admin/ in browser,
+
+use username admin and password admin to login.

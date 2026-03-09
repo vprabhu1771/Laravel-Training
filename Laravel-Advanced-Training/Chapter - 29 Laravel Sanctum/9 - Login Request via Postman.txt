@@ -1,0 +1,26 @@
+Postman
+
+Type -> POST
+
+
+URL 
+http://127.0.0.1:8000/api/sanctum/token
+
+
+Headers
+
+Key	Value
+Accept	application/json
+
+
+Body -> form-data
+
+Key		Value
+email		admin@gmail.com
+password	admin
+device_name	android
+
+
+OUTPUT
+
+V7P4c8jEptrHqW8BXYGBHf1fplA5fP6ZWTV9kKxod6efb46f

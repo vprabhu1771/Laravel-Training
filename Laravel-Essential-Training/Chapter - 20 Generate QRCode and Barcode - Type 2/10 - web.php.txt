@@ -1,0 +1,7 @@
+use App\Http\Controllers\BarcodeController;
+
+Route::get('/generate-barcode/{productId}', [BarcodeController::class, 'generateAndSaveProductBarcode'])
+    ->name('generate.barcode');
+
+Route::get('/generate-qrcode/{bankId}', [BarcodeController::class, 'generateAndSaveProductQRcode'])
+    ->name('generate.qrcode');

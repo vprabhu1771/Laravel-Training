@@ -1,0 +1,24 @@
+Creating a currency transformer works just like a number transformer.
+
+use NumberToWords\NumberToWords;
+
+// create the number to words "manager" class
+$numberToWords = new NumberToWords();
+
+// build a new currency transformer using the RFC 3066 language identifier
+$currencyTransformer = $numberToWords->getCurrencyTransformer('en');
+
+
+Then it can be used passing in numeric values for amount and ISO 4217 currency identifier to the toWords() method:
+
+// outputs "fifty dollars ninety nine cents"
+$currencyTransformer->toWords(5099, 'USD'); 
+
+
+It can be also used with a static method:
+
+// outputs "fifty dollars ninety nine cents"
+NumberToWords::transformCurrency('en', 5099, 'USD'); 
+
+
+Note: The Currency Transformer within this library processes integers; ensure your input amounts are in whole numbers by multiplying any float values by 100 before transformation. For instance, transform 45.67 by using 4567 as the input for accurate currency conversion.

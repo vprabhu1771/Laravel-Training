@@ -1,0 +1,5 @@
+After defining your table structure, run the migrations using the following Artisan command:
+
+php artisan migrate
+
+This will execute the up method and create the specified table in your database.

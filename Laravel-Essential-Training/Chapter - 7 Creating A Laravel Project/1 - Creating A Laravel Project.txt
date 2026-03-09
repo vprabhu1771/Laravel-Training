@@ -1,0 +1,22 @@
+Before creating your first Laravel project, make sure that your local machine has PHP and Composer installed. 
+If you are developing on macOS, PHP and Composer can be installed in minutes via Laravel Herd. 
+In addition, we recommend installing Node and NPM.
+
+
+After you have installed PHP and Composer, you may create a new Laravel project via Composer's create-project command:
+
+composer create-project laravel/laravel example-app
+
+
+Once the project has been created, start Laravel's local development server using Laravel Artisan's serve command:
+
+cd example-app
+ 
+php artisan serve
+
+
+Once you have started the Artisan development server, 
+your application will be accessible in your web browser at http://localhost:8000. 
+
+Next, you're ready to start taking your next steps into the Laravel ecosystem. 
+Of course, you may also want to configure a database.

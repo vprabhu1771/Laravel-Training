@@ -1,0 +1,5 @@
+It looks like you're using Laravel's Carbon library to work with dates and times in PHP. If you want to get the date without the time component using Carbon, you can simply use the `today()` method followed by the `toDateString()` method. Here's how you can do it:
+
+$date = Carbon::today()->toDateString();
+
+This will give you the current date in the format YYYY-MM-DD.

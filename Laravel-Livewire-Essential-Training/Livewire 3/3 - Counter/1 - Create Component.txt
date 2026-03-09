@@ -1,0 +1,11 @@
+php artisan livewire:layout
+
+CLASS: C:\Users\windows_rig3\LaravelProjects\laravel-example-app\resources\views\components\layouts\app.blade.php
+
+
+php artisan make:livewire counter
+
+COMPONENT CREATED
+
+CLASS: app/Livewire//Counter.php
+VIEW:  C:\Users\windows_rig3\LaravelProjects\laravel-example-app\resources\views/livewire/counter.blade.php

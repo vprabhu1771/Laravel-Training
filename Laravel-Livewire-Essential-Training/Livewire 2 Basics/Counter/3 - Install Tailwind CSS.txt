@@ -1,0 +1,44 @@
+https://tailwindcss.com/docs/guides/laravel
+
+
+Install tailwindcss and its peer dependencies via npm, and then run the init command to generate both tailwind.config.js and postcss.config.js.
+
+
+
+npm install -D tailwindcss postcss autoprefixer
+
+npx tailwindcss init -p
+
+
+
+Configure your template paths
+
+Add the paths to all of your template files in your tailwind.config.js file.
+
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    "./resources/**/*.blade.php",
+    "./resources/**/*.js",
+    "./resources/**/*.vue",
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+
+
+
+example-app\resources\css\app.css
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+npm install && npm run dev
+
+npm run build 
+
+php artisan serve

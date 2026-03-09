@@ -1,0 +1,13 @@
+Next, define a route in your routes/web.php file:
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
+
+Change To
+
+
+use App\Http\Controllers\HomeController;
+
+Route::get('/', [HomeController::class, 'index'])->name('home.index');

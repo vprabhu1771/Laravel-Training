@@ -1,0 +1,31 @@
+Open the generated controller file (app/Http/Controllers/CityController.php) and define the findStateAndCountryByCity method:
+
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+// Import City Model
+use App\Models\City;
+
+class CityController extends Controller
+{
+    public function findStateAndCountryByCity($cityName)
+    {
+        $city = City::where('name', $cityName)->with('state.country')->first();
+
+        if ($city) {
+            $state = $city->state;
+            $country = $state->country;
+
+            return response()->json([
+                'city' => $city,
+                'state' => $state,
+                'country' => $country,
+            ]);
+        } else {
+            return response()->json(['error' => 'City not found'], 404);
+        }
+    }
+}

@@ -1,0 +1,1 @@
+You may display data that is passed to your Blade views by wrapping the variable in curly braces. For example, given the following route:
