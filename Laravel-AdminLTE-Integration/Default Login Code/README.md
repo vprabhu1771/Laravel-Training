@@ -1,28 +1,5 @@
 ```
-php artisan adminlte:install --only=main_views
-```
-
-```
-php artisan adminlte:install --only=auth_views
-```
-
-Then edit the file:
-
-```
-<!-- resources/views/vendor/adminlte/auth/login.blade.php -->
-
-<x-adminlte-input name="shop_id" label="Shop ID" type="number" required autofocus />
-
-<x-adminlte-input name="email" label="Email" type="email" required />
-
-<x-adminlte-input name="password" label="Password" type="password" required />
-```
-
-
-# OR
-
-```
-resources\views\vendor\adminlte\auth\login.blade.php
+vendor\jeroennoten\laravel-adminlte\resources\views\auth\login.blade.php
 ```
 
 ```php
@@ -53,36 +30,6 @@ resources\views\vendor\adminlte\auth\login.blade.php
 @section('auth_body')
     <form action="{{ $loginUrl }}" method="post">
         @csrf
-
-         @php
-            use App\Models\School;
-            $schools = School::all();
-        @endphp
-
-        {{-- School Dropdown --}}
-        <div class="input-group mb-3">
-            <select name="school_id" class="form-control @error('school_id') is-invalid @enderror">
-                <option value="">Select School</option>
-                @foreach ($schools as $school)
-                    <option value="{{ $school->id }}" {{ old('school_id') == $school->id ? 'selected' : '' }}>
-                        {{ $school->name }}
-                    </option>
-                @endforeach
-            </select>
-
-            <div class="input-group-append">
-                <div class="input-group-text">
-                    <span class="fas fa-school {{ config('adminlte.classes_auth_icon', '') }}"></span>
-                </div>
-            </div>
-
-            @error('school_id')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-            @enderror
-        </div>
-
 
         {{-- Email field --}}
         <div class="input-group mb-3">
@@ -161,4 +108,5 @@ resources\views\vendor\adminlte\auth\login.blade.php
         </p>
     @endif
 @stop
+
 ```
