@@ -1,0 +1,7 @@
+```
+https://github.com/barryvdh/laravel-dompdf
+```
+
+```
+composer require barryvdh/laravel-dompdf
+```
