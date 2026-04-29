@@ -7,6 +7,10 @@ https://packagist.org/packages/manojkumarlinux/ping4sms
 ```
 
 ```
+https://github.com/manojkumar-net/ping4SMS
+```
+
+```
 composer require manojkumarlinux/ping4sms
 ```
 
