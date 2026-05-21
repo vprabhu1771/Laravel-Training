@@ -1,0 +1,5 @@
+https://www.dropzone.dev/
+
+https://packagist.org/packages/enyo/dropzone
+
+composer require enyo/dropzone
