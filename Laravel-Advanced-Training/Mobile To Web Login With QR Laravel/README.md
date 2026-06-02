@@ -1,0 +1,9 @@
+```
+https://www.youtube.com/watch?v=8AyFISK5ml0
+```
+```
+https://dev.to/sahilkashyap64/qr-login-in-php-2pgf
+```
+```
+https://github.com/sahilkashyap64/qrlogin-php
+```
